@@ -1,0 +1,23 @@
+name: Deploy to Cloud Run
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Google Auth
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+    - name: Deploy
+      uses: google-github-actions/deploy-cloudrun@v1
+      with:
+        service: fullstack-app
+        region: us-central1
+        image: gcr.io/my-new-project-for-ramzan/fullstack-app
+        traffic-percentages: "new:100, old:0"
+
